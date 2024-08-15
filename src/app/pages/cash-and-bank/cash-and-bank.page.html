@@ -1,0 +1,74 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cash & Bank</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Total Cash & Bank Balance Section -->
+  <div class="cash-bank-summary">
+    <p>Total Cash & Bank Balance</p>
+    <h1>₹90,000</h1>
+  </div>
+
+  <ion-button expand="full" fill="clear" class="add-bank" (click)="addNewBank()">
+    <ion-icon slot="start" name="add-outline"></ion-icon>
+    Add New Bank
+  </ion-button>
+
+  <!-- Cash & Bank History Section -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>History</ion-label>
+    </ion-list-header>
+    <ion-item lines="none" class="history-item">
+      <ion-label>
+        <h3>#1255233566</h3>
+        <p>30 Oct 2022, 10:30 PM</p>
+      </ion-label>
+      <ion-note slot="end" color="primary">₹550/-</ion-note>
+      <ion-badge color="success" slot="end">Paid</ion-badge>
+    </ion-item>
+
+    <ion-item lines="none" class="history-item">
+      <ion-label>
+        <h3>#1255233566</h3>
+        <p>30 Oct 2022, 10:30 PM</p>
+      </ion-label>
+      <ion-note slot="end" color="primary">₹550/-</ion-note>
+      <ion-badge color="danger" slot="end">Failed</ion-badge>
+    </ion-item>
+
+    <ion-item lines="none" class="history-item">
+      <ion-label>
+        <h3>#1255233566</h3>
+        <p>30 Oct 2022, 10:30 PM</p>
+      </ion-label>
+      <ion-note slot="end" color="primary">₹550/-</ion-note>
+      <ion-badge color="medium" slot="end">Pending</ion-badge>
+    </ion-item>
+
+    <ion-item lines="none" class="history-item">
+      <ion-label>
+        <h3>#1255233566</h3>
+        <p>30 Oct 2022, 10:30 PM</p>
+      </ion-label>
+      <ion-note slot="end" color="primary">₹550/-</ion-note>
+      <ion-badge color="success" slot="end">Paid</ion-badge>
+    </ion-item>
+
+    <ion-item lines="none" class="history-item">
+      <ion-label>
+        <h3>#1255233566</h3>
+        <p>30 Oct 2022, 10:30 PM</p>
+      </ion-label>
+      <ion-note slot="end" color="primary">₹550/-</ion-note>
+      <ion-badge color="success" slot="end">Paid</ion-badge>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-tab-bar slot="bottom">
+  <ion-tab-button layout="icon-top" (click)="orderPageNavigation('home')">
+    <ion-icon [ngClass]="checkRouter === '/home' ? 'active': ''" name="home-outline"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/order' ? true : false"
+    (click)="orderPageNavigation('order')">
+    <ion-icon color="dark" name="people-outline"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/favourite' ? true : false"
+    (click)="orderPageNavigation('favourite')">
+    <ion-icon color="dark" name="add-outline"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/setting' ? true : false"
+    (click)="orderPageNavigation('setting')">
+    <ion-icon color="dark" name="document-outline"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/setting' ? true : false"
+    (click)="orderPageNavigation('setting')">
+    <ion-icon color="dark" name="person-outline"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
