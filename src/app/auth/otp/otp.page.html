@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <div class="custom-header">
+    <div class="header-content">
+      <h1 class="logo">Deilify</h1>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <div class="welcome-text">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <ion-back-button icon="chevron-back-outline" default-href="/login"></ion-back-button>
+          </ion-col>
+          <ion-col>
+            <h5>Verify OTP</h5>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-item lines="none">
+      <ng-otp-input
+        (onInputChange)="onOtpChange($event)"
+        [config]="config">
+      </ng-otp-input>
+    </ion-item>
+
+    <div>
+      <h5 class="timer" *ngIf="timer">00 : {{ timer > 9 ? timer:'0'+timer }}</h5>
+    </div>
+    
+    <div class="resendOtp">
+      Didn't Get Code? <a (click)="resendOtpBtn()">Resend OTP</a>
+    </div>
+  </div>
+
+  <ion-row class="btn-row">
+    <ion-col>
+      <ion-button strong="true" mode="md" expand="block" fill="solid" [disabled]="invalidOtp" (click)="verifyOtp()">
+        Verify OTP</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+
+<!-- <ion-content>
+  <div class="verify-otp-container">
+    <ion-icon name="chevron-back-outline" (click)="goToLogin()"></ion-icon>
+    <h2>Verify OTP</h2>
+    <div class="otp-input-container">
+      <ion-input type="text" maxlength="1"></ion-input>
+      <ion-input type="text" maxlength="1"></ion-input>
+      <ion-input type="text" maxlength="1"></ion-input>
+      <ion-input type="text" maxlength="1"></ion-input>
+    </div>
+    <div class="timer">2:00</div>
+    <div class="resend-otp">
+      Didn't Get Code? <a href="#">Resend OTP</a>
+    </div>
+    <ion-button expand="full">Verify OTP</ion-button>
+  </div>
+</ion-content> -->

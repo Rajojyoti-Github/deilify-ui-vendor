@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <div class="custom-header">
+    <div class="header-content">
+      <h1 class="logo">Deilify</h1>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="register-container">
+    <h1>Register</h1>
+    <ion-avatar class="profile-picture">
+      <img alt="Profile Picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
+    </ion-avatar>
+    <form [formGroup]="registerForm" (ngSubmit)="registration()">
+      <ion-item>
+        <ion-input placeholder="Full Name" formControlName="fullName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="placeh" text-wrap>+91</ion-label>
+        <ion-input class="mob" #inputinfo placeholder="Phone no."
+          inputmode="tel" value="number" type="text" minlength="10" maxlength="10"
+          [(ngModel)]="phoneNumber" formControlName="phoneNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="login-link">
+        <span>Already have an account? <a (click)="Login()">Login</a></span>
+      </div>
+      <ion-button class="registerBtn" expand="block" strong="true" mode="md" fill="solid" type="submit" [disabled]="!registerForm.valid">Registration</ion-button>
+    </form>
+  </div>
+</ion-content>
