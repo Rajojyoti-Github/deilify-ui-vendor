@@ -168,7 +168,7 @@ ion-avatar {
   color: white;
   padding: 25px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .cash-bank-summary p {
@@ -186,30 +186,6 @@ ion-avatar {
   font-size: 1rem;
   font-weight: bold;
   margin: 0;
-}
-
-.history-item {
-  --ion-item-background: #ffffff;
-}
-
-.history-item h3 {
-  font-size: 1rem;
-  margin: 0;
-  color: var(--ion-color-primary);
-}
-
-.history-item p {
-  margin: 5px 0 0 0;
-  color: gray;
-  font-size: 0.8rem;
-}
-
-ion-item {
-  border-radius: 10px;
-  padding: 5px;
-  margin-bottom: 15px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid lightgrey;
 }
 
 .footer {

@@ -31,6 +31,22 @@ const routes: Routes = [
     path: 'add-new-bank',
     loadChildren: () => import('./pages/add-new-bank/add-new-bank.module').then( m => m.AddNewBankPageModule)
   },
+  {
+    path: 'bill-invoice',
+    loadChildren: () => import('./pages/bill-invoice/bill-invoice.module').then( m => m.BillInvoicePageModule)
+  },
+  {
+    path: 'received-payment',
+    loadChildren: () => import('./pages/received-payment/received-payment.module').then( m => m.ReceivedPaymentPageModule)
+  },
+  {
+    path: 'services',
+    loadChildren: () => import('./pages/services/services.module').then( m => m.ServicesPageModule)
+  },
+  {
+    path: 'add-service',
+    loadChildren: () => import('./pages/add-service/add-service.module').then( m => m.AddServicePageModule)
+  },
 ];
 
 @NgModule({

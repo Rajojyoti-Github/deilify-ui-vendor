@@ -1,0 +1,49 @@
+ion-title {
+  text-align: center;
+  margin-right: 40px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.custom-toolbar {
+  --background: #e0e0e0;
+  --border-width: 0;
+  --padding-end: 10px;
+}
+
+.custom-title {
+  font-size: 14px;
+  color: #1e2a2a; /* Dark color for text */
+  font-weight: 500;
+}
+
+ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-item {
+  --inner-padding-end: 0;
+}
+
+ion-note {
+  font-size: 1rem;
+}
+
+.border {
+  border-color: #ffffff;
+  border-style: groove;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+
+ion-select {
+  --padding-end: 15px;
+}
+
+.party-btn {
+  font-size: large;
+}
+
+.add-service {
+  text-transform: capitalize;
+}

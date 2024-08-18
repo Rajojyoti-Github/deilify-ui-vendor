@@ -14,4 +14,12 @@ export class HomePage {
     this.router.navigate(['cash-and-bank']);
   }
 
+  billInvoice() {
+    this.router.navigate(['bill-invoice']);
+  }
+
+  receivedPayment() {
+    this.router.navigate(['received-payment']);
+  }
+
 }

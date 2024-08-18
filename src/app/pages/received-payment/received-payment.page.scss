@@ -1,0 +1,85 @@
+ion-title {
+    text-align: center;
+    margin-right: 40px;
+    font-size: large;
+    font-weight: bold;
+  }
+  
+  .custom-toolbar {
+    --background: #e0e0e0;
+    --border-width: 0;
+    --padding-end: 10px;
+  }
+  
+  .custom-title {
+    font-size: 14px;
+    color: #1e2a2a; /* Dark color for text */
+    font-weight: 500;
+  }
+  
+  ion-icon {
+    color: var(--ion-color-primary);
+  }
+  
+  ion-item {
+    --inner-padding-end: 0;
+  }
+  
+  ion-note {
+    font-size: 1rem;
+  }
+  
+  .border {
+    border-color: #ffffff;
+    border-style: groove;
+    border-radius: 3px;
+    margin-top: 15px;
+  }
+  
+  ion-select {
+    --padding-end: 15px;
+  }
+  
+  .party-btn {
+    font-size: large;
+  }
+
+  .payment-mode-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .payment-mode-item {
+    --color: #808080;
+    --inner-box-shadow: none;
+    --background: none;
+    --color-focused: #0094a1;
+    --color-checked: #0094a1;
+    margin-left: -10px;
+  }
+  
+  .payment-mode-item ion-label {
+    color: var(--color);
+    margin-right: 10px;
+  }
+  
+  .payment-mode-item ion-radio {
+    --color-checked: #0094a1;
+  }
+  
+  .payment-mode-item[aria-checked='true'] ion-label {
+    color: #0094a1;
+  }
+  
+  .payment-mode-item ion-radio:checked + ion-label {
+    color: #0094a1;
+  }
+  
+  .payment-mode-item ion-radio {
+    --border-color: #808080;
+    --border-color-checked: #0094a1;
+    --color-checked: #0094a1;
+    --background: transparent;
+  }
+  
+  

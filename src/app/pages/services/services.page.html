@@ -1,0 +1,110 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fixed-slot-placement="before">
+
+  <!-- Carousel Section -->
+  <div id="container">
+    <swiper-container #swiper>
+      <swiper-slide>
+        <img class="swiperImage" src="assets/images/clothing.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img class="swiperImage" src="assets/images/washing.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img class="swiperImage" src="assets/images/cleaning.png" />
+      </swiper-slide>
+    </swiper-container>
+  </div>
+
+  <ion-row>
+    <ion-col>
+      <ion-searchbar placeholder="Search"></ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="4">
+      <ion-button size="small" fill="outline" class="filter-button">Low Stock</ion-button>
+    </ion-col>
+    <ion-col size="4">
+      <!-- Button to trigger ion-select -->
+      <ion-button size="small" fill="outline" class="filter-button" (click)="openSelect()">Category</ion-button>
+      <!-- ion-select with template reference variable -->
+      <ion-select #categorySelect>
+        <ion-select-option value="drycleaning">Dry Cleaning</ion-select-option>
+        <ion-select-option value="laundry">Laundry</ion-select-option>
+        <ion-select-option value="pressing">Pressing</ion-select-option>
+      </ion-select>
+    </ion-col>
+    <ion-col size="4">
+      <ion-button size="small" fill="outline" class="filter-button">Filter By</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item class="service-item" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="assets/images/ironing.png" alt="Dry Cleaning">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Dry Cleaning</h2>
+      </ion-label>
+      <ion-note slot="end" color="dark">₹550/-</ion-note>
+    </ion-item>
+    <ion-item class="service-item" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="assets/images/ironing.png" alt="Dry Cleaning">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Dry Cleaning</h2>
+      </ion-label>
+      <ion-note slot="end" color="dark">₹550/-</ion-note>
+    </ion-item>
+    <ion-item class="service-item" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="assets/images/ironing.png" alt="Dry Cleaning">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Dry Cleaning</h2>
+      </ion-label>
+      <ion-note slot="end" color="dark">₹550/-</ion-note>
+    </ion-item>
+    <ion-item class="service-item" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="assets/images/ironing.png" alt="Dry Cleaning">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Dry Cleaning</h2>
+      </ion-label>
+      <ion-note slot="end" color="dark">₹550/-</ion-note>
+    </ion-item>
+    <ion-item class="service-item" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="assets/images/ironing.png" alt="Dry Cleaning">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Dry Cleaning</h2>
+      </ion-label>
+      <ion-note slot="end" color="dark">₹550/-</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <div class="add-buttons">
+    <ion-fab-button size="small" (click)="addService()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button size="small">
+      <ion-icon name="folder-outline"></ion-icon>
+    </ion-fab-button>
+  </div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border footer">
+  <app-bottom-tab-view [tabsTextAvailable]="false"></app-bottom-tab-view>
+</ion-footer>
