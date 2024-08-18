@@ -21,21 +21,31 @@ export class LoginPage implements OnInit {
   }
 
   getOtp(inputinfo: any) {
-    // if (!inputinfo.value) return;
-    // const params = { mobileNumber: inputinfo.value, otp: '', message: ''};
-    // if (!this.invalidPhone) {
-    //   this.commonService.presentLoading()
-    //   this.authService.sendOtp(params).subscribe((res: any) => {
-    //     if (res.success) {
-    //       this.commonService.dissmiss_loading()
-    //       this.router.navigate(['otp', btoa(JSON.stringify(inputinfo.value))]);
-    //     } else if (res && res.error) {
-    //       this.commonService.dissmiss_loading()
-    //       this.commonService.toast(res.error.message);
-    //     }
-    //   });
-    // }
-    this.router.navigate(['otp']);
+    if (!inputinfo.value) return;
+    const params = { mobileNumber: inputinfo.value, otp: '', message: '' };
+    if (!this.invalidPhone) {
+      this.commonService.presentLoading();
+      this.authService.sendOtp(params).subscribe({
+        next: (res: any) => {
+          this.commonService.dissmiss_loading();
+          if (res.success) {
+            this.commonService.dissmiss_loading()
+            this.router.navigate(['otp', btoa(JSON.stringify(inputinfo.value))]);
+          } else if (res && res.error) {
+            this.commonService.dissmiss_loading()
+            this.commonService.toast(res.error.message);
+          }
+        },
+        error: (err: any) => {
+          this.commonService.dissmiss_loading();
+          this.commonService.danger('Something went wrong!!');
+        },
+        complete: () => {
+          this.commonService.dissmiss_loading();
+        }
+      });
+    }
+    //this.router.navigate(['otp']);
   }
 
   validatePhone(e: any) {

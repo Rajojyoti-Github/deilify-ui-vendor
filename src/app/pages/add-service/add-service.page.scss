@@ -1,0 +1,26 @@
+ion-title {
+  text-align: center;
+  margin-right: 40px;
+  font-size: large;
+  font-weight: bold;
+}
+
+ion-item {
+    margin-top: 10px;
+}
+
+ion-select {
+    font-size: smaller;
+}
+
+ion-input {
+    font-size: smaller;
+}
+
+.saveBtn {
+    height: 45px;
+    margin-top: 100%;
+    text-align: center;
+    text-transform: capitalize;
+    --color: var(--ion-color-light);
+  }

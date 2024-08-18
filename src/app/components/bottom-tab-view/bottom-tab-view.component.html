@@ -6,9 +6,9 @@
     (click)="orderPageNavigation('order')">
     <ion-icon color="dark" name="people-outline"></ion-icon>
   </ion-tab-button>
-  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/favourite' ? true : false"
-    (click)="orderPageNavigation('favourite')">
-    <ion-icon color="dark" name="add-outline"></ion-icon>
+  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/services' ? true : false"
+    (click)="orderPageNavigation('services')">
+    <ion-icon [ngClass]="checkRouter === '/services' ? 'active': ''" name="add-outline"></ion-icon>
   </ion-tab-button>
   <ion-tab-button layout="icon-top" [selected]="checkRouter === '/setting' ? true : false"
     (click)="orderPageNavigation('setting')">
