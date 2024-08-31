@@ -6,11 +6,20 @@ export const PhoneCheck = (phone: string) => {
 
 export const ApiUrls = {
     auth: {
-        sendOtp: '/api/registerMobileNumber',
-        verifyOtp: '/api/verifyOtp',
+        sendOtp: '/api/registerVendorMobileNumber',
+        verifyOtp: '/api/verifyOtpForVendor',
     },
     register: '/api//registerVendor',
 
     /* for bank */
     addBank: '/api/addBankAccount',
+
+    /* for Category */
+    getCategory: '/api/getDDLResults',
+
+    /* for add store address */
+    addstoreaddress: '/api/addStoreAddress',
+
+    /* for add Services */
+    addServices: '/api/services'
 }

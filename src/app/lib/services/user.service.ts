@@ -28,6 +28,15 @@ export class UserService {
     return this.commonApi.putData(`${ApiUrls.register}/`, registerFormData);
   }
 
+  addStoreAddress(addStoreAddressData: any) {
+    return forkJoin({ isAddStore: this.commonApi.addStoreAddress(addStoreAddressData) }).pipe(
+      catchError((err) => this.errorHandler(err)),
+      map(({ isAddStore }) => ({
+        isAddStore,
+      }))
+    );
+  }
+
   private errorHandler(err: any) {
     if (err.error.length >= 1) {
       this.commonService.danger(err.error[0].message);

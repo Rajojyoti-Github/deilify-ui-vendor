@@ -21,7 +21,11 @@ ion-title {
 
 .cash-bank-summary h1 {
   margin: 10px 0 0 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
+}
+
+.collect-border {
+  border-right: 1px solid lightgrey;
 }
 
 .add-bank {

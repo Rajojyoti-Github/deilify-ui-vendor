@@ -8,37 +8,37 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <form [formGroup]="addServicesForm" (ngSubmit)="onSubmit()">
+    <ion-item lines="none">
+      <ion-select label="Category Name" label-placement="fixed" fill="outline" interface="popover"
+        [value]="selectedCategory" formControlName="category" (ionChange)="onCategoryChange($event)">
+        <ion-select-option *ngFor="let category of categories" [value]="category.value">{{ category.value
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-select label="Category Name" label-placement="fixed" fill="outline" interface="popover">
-      <ion-select-option value="apple">Apple</ion-select-option>
-      <ion-select-option value="banana">Banana</ion-select-option>
-      <ion-select-option value="orange">Orange</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-select label="Sub Category" label-placement="fixed" fill="outline" interface="popover"
+        [value]="selectedSubCategory" formControlName="subCategory" (ionChange)="onSubCategoryChange($event)">
+        <ion-select-option *ngFor="let subCategory of subCategories" [value]="subCategory.value">{{ subCategory.value
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-select label="Sub Category" label-placement="fixed" fill="outline" interface="popover">
-      <ion-select-option value="apple">Apple</ion-select-option>
-      <ion-select-option value="banana">Banana</ion-select-option>
-      <ion-select-option value="orange">Orange</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-select label="Service Name" label-placement="fixed" fill="outline" interface="popover"
+        [value]="selectedServiceLine" formControlName="serviceLine" (ionChange)="onServiceLineChange($event)">
+        <ion-select-option *ngFor="let serviceLine of serviceLines" [value]="serviceLine.value">{{ serviceLine.value
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-select label="Service Name" label-placement="fixed" fill="outline" interface="popover">
-      <ion-select-option value="apple">Apple</ion-select-option>
-      <ion-select-option value="banana">Banana</ion-select-option>
-      <ion-select-option value="orange">Orange</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Service Price" label-placement="fixed" fill="outline" formControlName="price" [(ngModel)]="servicePrice"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-input label="Service Price" label-placement="fixed" fill="outline"></ion-input>
-  </ion-item>
 
-    
-  <ion-button class="saveBtn" expand="block" strong="true" mode="md" fill="solid">Save</ion-button>
-
+    <ion-button class="saveBtn" type="submit" expand="block" strong="true" mode="md" fill="solid">Save</ion-button>
+  </form>
 
 </ion-content>

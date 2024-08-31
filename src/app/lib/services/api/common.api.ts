@@ -23,4 +23,16 @@ export class CommonApi extends GenericApi {
         return this.post(`${environment.baseUrl + ApiUrls.addBank}`, body);
     }
 
+    getDDLResults(data: any) {
+        return this.post(`${environment.baseUrl + ApiUrls.getCategory}`, data);
+    }
+
+    addStoreAddress(data: any) {
+        return this.post(`${environment.baseUrl + ApiUrls.addstoreaddress}`, data);
+    }
+
+    addServices(data: any) {
+        return this.post(`${environment.baseUrl + ApiUrls.addServices}`, data);
+    }
+
 }
