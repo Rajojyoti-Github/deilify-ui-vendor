@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'otp',
+    path: 'otp/:phone',
     loadChildren: () => import('./auth/otp/otp.module').then( m => m.OtpPageModule)
   },
   {
@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'add-service',
     loadChildren: () => import('./pages/add-service/add-service.module').then( m => m.AddServicePageModule)
+  },
+  {
+    path: 'add-store-address',
+    loadChildren: () => import('./pages/add-store-address/add-store-address.module').then( m => m.AddStoreAddressPageModule)
   },
 ];
 

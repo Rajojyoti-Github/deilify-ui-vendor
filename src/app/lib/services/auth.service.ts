@@ -18,6 +18,12 @@ export class AuthService {
       .pipe(catchError((err: any) => this.errorHandler(err)));
   }
 
+  verifyOtp(otpData: any) {
+    return this.commonApi
+      .postData(ApiUrls.auth.verifyOtp, otpData)
+      .pipe(catchError((err) => this.errorHandler(err)));
+  }
+
   private errorHandler(err: any) {
     if(err.status == 401){
       this.commonService.toast(err.status == 401?err.error.error ? err.error.error.message : err.error.message:err.statusText);

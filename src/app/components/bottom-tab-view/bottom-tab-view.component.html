@@ -14,8 +14,8 @@
     (click)="orderPageNavigation('setting')">
     <ion-icon color="dark" name="document-outline"></ion-icon>
   </ion-tab-button>
-  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/setting' ? true : false"
-    (click)="orderPageNavigation('setting')">
-    <ion-icon color="dark" name="person-outline"></ion-icon>
+  <ion-tab-button layout="icon-top" [selected]="checkRouter === '/add-store-address' ? true : false"
+    (click)="orderPageNavigation('add-store-address')">
+    <ion-icon [ngClass]="checkRouter === '/add-store-address' ? 'active': ''" name="person-outline"></ion-icon>
   </ion-tab-button>
 </ion-tab-bar>

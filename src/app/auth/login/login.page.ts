@@ -22,15 +22,15 @@ export class LoginPage implements OnInit {
 
   getOtp(inputinfo: any) {
     if (!inputinfo.value) return;
-    const params = { mobileNumber: inputinfo.value, otp: '', message: '' };
+    const params = { mobileNumber: "91" + inputinfo.value, otp: '', message: '' };
     if (!this.invalidPhone) {
       this.commonService.presentLoading();
       this.authService.sendOtp(params).subscribe({
         next: (res: any) => {
           this.commonService.dissmiss_loading();
-          if (res.success) {
+          if (res.message == "success") {
             this.commonService.dissmiss_loading()
-            this.router.navigate(['otp', btoa(JSON.stringify(inputinfo.value))]);
+            this.router.navigate(['otp', btoa(JSON.stringify( "91" + inputinfo.value))]);
           } else if (res && res.error) {
             this.commonService.dissmiss_loading()
             this.commonService.toast(res.error.message);
@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
         }
       });
     }
-    //this.router.navigate(['otp']);
+    //this.router.navigate(['otp', btoa(JSON.stringify(inputinfo.value))]);
   }
 
   validatePhone(e: any) {
