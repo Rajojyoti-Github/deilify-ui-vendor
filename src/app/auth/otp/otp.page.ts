@@ -64,30 +64,30 @@ export class OtpPage implements OnInit {
   }
 
   verifyOtp() {
-    if(this.otp == "1234") {
-      this.router.navigate(['/home']);
-    } 
+    // if(this.otp == "1234") {
+    //   this.router.navigate(['/home']);
+    // } 
 
-    // const params = {
-    //   mobileNumber: this.mobileNumber.toString(),
-    //   otp: this.otp,
-    //   message: "",
-    //   vendorId: "",
-    // };
-    // this.authService.verifyOtp(params).pipe(
-    //   tap((res: any) => {
-    //     if (res.success) {
-    //       this.router.navigate(['/home']);
-    //     } else if (res && res.error) {
-    //       this.invalidOtp = true;
-    //       this.commonService.toast(res.error.message);
-    //     }
-    //   }),
-    //   catchError((err: any) => {
-    //     this.commonService.toast(err.error.error.message);
-    //     return throwError(() => new Error(err.error.error.message)); // rethrow the error if needed
-    //   })
-    // ).subscribe();
+    const params = {
+      mobileNumber: this.mobileNumber.toString(),
+      otp: this.otp,
+      message: "",
+      vendorId: "",
+    };
+    this.authService.verifyOtp(params).pipe(
+      tap((res: any) => {
+        if (res.message == "success") {
+          this.router.navigate(['/home']);
+        } else if (res && res.error) {
+          this.invalidOtp = true;
+          this.commonService.toast(res.error.message);
+        }
+      }),
+      catchError((err: any) => {
+        this.commonService.toast(err.error.error.message);
+        return throwError(() => new Error(err.error.error.message)); // rethrow the error if needed
+      })
+    ).subscribe();
 
   }
 
