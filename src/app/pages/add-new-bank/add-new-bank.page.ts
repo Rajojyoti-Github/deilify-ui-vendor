@@ -33,7 +33,7 @@ export class AddNewBankPage implements OnInit {
     if (this.bankForm.valid) {
       console.log(this.bankForm.value);
       this.commonService.present();
-      this.bankForm.value['vendorEntityId'] = Number(localStorage.getItem("vendorId"));
+      this.bankForm.value['vendorId'] = Number(localStorage.getItem("vendorId"));
       this.userService.addBankFormDetals(this.bankForm.value).pipe(
         tap((res: any) => {
           this.commonService.dismiss();
