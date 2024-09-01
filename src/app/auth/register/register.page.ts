@@ -38,7 +38,7 @@ export class RegisterPage implements OnInit {
       this.userService.registerUserDetails(this.registerForm.value).subscribe({
         next: (res: any) => {
           this.commonService.dissmiss_loading();
-          if (res.success) {
+          if (res.message == "Success") {
             this.commonService.success('Profile successfully updated');
             this.router.navigateByUrl('/home');
           } else if (res && res.error) {

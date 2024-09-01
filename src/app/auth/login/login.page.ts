@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
       this.authService.sendOtp(params).subscribe({
         next: (res: any) => {
           this.commonService.dissmiss_loading();
-          if (res.message == "success") {
+          if (res.message == "Success") {
             this.commonService.dissmiss_loading()
             this.router.navigate(['otp', btoa(JSON.stringify( "91" + inputinfo.value))]);
           } else if (res && res.error) {

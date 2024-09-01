@@ -19,8 +19,8 @@
 
     <ion-item lines="none">
       <ion-select label="Sub Category" label-placement="fixed" fill="outline" interface="popover"
-        [value]="selectedSubCategory" formControlName="subCategory" (ionChange)="onSubCategoryChange($event)">
-        <ion-select-option *ngFor="let subCategory of subCategories" [value]="subCategory.value">{{ subCategory.value
+        [value]="selectedSubCategory" (ionChange)="onSubCategoryChange($event)">
+        <ion-select-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{ subCategory.value
           }}</ion-select-option>
       </ion-select>
     </ion-item>
@@ -34,7 +34,7 @@
     </ion-item>
 
     <ion-item lines="none">
-      <ion-input label="Service Price" label-placement="fixed" fill="outline" formControlName="price" [(ngModel)]="servicePrice"></ion-input>
+      <ion-input label="Service Price" label-placement="fixed" fill="outline" type="number" formControlName="price" [(ngModel)]="servicePrice"></ion-input>
     </ion-item>
 
 
