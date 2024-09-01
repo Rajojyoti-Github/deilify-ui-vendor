@@ -76,7 +76,8 @@ export class OtpPage implements OnInit {
     };
     this.authService.verifyOtp(params).pipe(
       tap((res: any) => {
-        if (res.message == "success") {
+        if (res.message == "Success") {
+          localStorage.setItem("vendorId", res.vendorId);
           this.router.navigate(['/home']);
         } else if (res && res.error) {
           this.invalidOtp = true;

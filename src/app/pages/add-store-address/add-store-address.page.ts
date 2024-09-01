@@ -57,6 +57,7 @@ export class AddStoreAddressPage implements OnInit {
     if (this.addStoreAddressForm.valid) {
       console.log(this.addStoreAddressForm.value);
       this.commonService.present();
+      this.addStoreAddressForm.value['vendorEntityId'] = localStorage.getItem('vendorId');;
       this.userService.addStoreAddress(this.addStoreAddressForm.value).pipe(
         tap((res: any) => {
           this.commonService.dismiss();

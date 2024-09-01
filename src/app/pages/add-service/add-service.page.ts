@@ -140,7 +140,7 @@ export class AddServicePage implements OnInit {
       console.log(this.addServicesForm.value);
       this.commonService.present();
       this.addServicesForm.value['subCategory'] = this.selectedSubCategory.value;
-      this.addServicesForm.value['vendorId'] = "";
+      this.addServicesForm.value['vendorId'] = localStorage.getItem('vendorId');;
       this.addServicesForm.value['nameOfVendor'] = "";
       this.addServicesForm.value['vendorStoreId'] = "";
       this.productService.addServices(this.addServicesForm.value).pipe(
