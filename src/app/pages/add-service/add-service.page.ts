@@ -25,7 +25,7 @@ export class AddServicePage implements OnInit {
   ngOnInit() {
     this.addServicesForm = this.fb.group({
       category: ['', Validators.required],
-      subCategory: ['', Validators.required],
+      //subCategory: ['', Validators.required],
       serviceLine: ['', Validators.required],
       price: ['', Validators.required]
     });
@@ -92,7 +92,7 @@ export class AddServicePage implements OnInit {
   }
 
   onSubCategoryChange(event: any) {
-    this.selectedSubCategory = event.detail;
+    this.selectedSubCategory = event.detail.value;
     console.log('Selected SubCategory:', this.selectedSubCategory);
 
     // Trigger serviceLine loading based on selected subcategory
@@ -139,10 +139,14 @@ export class AddServicePage implements OnInit {
     if (this.addServicesForm.valid) {
       console.log(this.addServicesForm.value);
       this.commonService.present();
+      this.addServicesForm.value['subCategory'] = this.selectedSubCategory.value;
+      this.addServicesForm.value['vendorId'] = "";
+      this.addServicesForm.value['nameOfVendor'] = "";
+      this.addServicesForm.value['vendorStoreId'] = "";
       this.productService.addServices(this.addServicesForm.value).pipe(
         tap((res: any) => {
           this.commonService.dismiss();
-          if (res?.isBank?.success) {
+          if (res?.addServices?.success) {
             this.commonService.success('add Service Successfully Uploaded');
             //this.router.navigate(['cash-and-bank']);
           }
