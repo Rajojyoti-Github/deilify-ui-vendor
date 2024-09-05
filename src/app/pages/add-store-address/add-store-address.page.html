@@ -19,11 +19,11 @@
     </ion-item>
 
     <ion-item lines="none" class="input-item">
-      <ion-input formControlName="district" type="text" placeholder="district"></ion-input>
+      <ion-input formControlName="district" type="text" placeholder="District"></ion-input>
     </ion-item>
 
     <ion-item lines="none" class="select-item">
-      <ion-select label="Country" label-placement="fixed" fill="outline" interface="popover" 
+      <ion-select label="Country" label-placement="floating" fill="outline" interface="popover" 
         formControlName="country">
         <ion-select-option *ngFor="let country of countries" [value]="country">
           {{ country }}</ion-select-option>
@@ -31,7 +31,7 @@
     </ion-item>
   
     <ion-item lines="none" class="select-item">
-      <ion-select label="State" label-placement="fixed" fill="outline" interface="popover"
+      <ion-select label="State" label-placement="floating" fill="outline" interface="popover"
         formControlName="state" [disabled]="!stateList.length">
         <ion-select-option *ngFor="let state of stateList" [value]="state">
           {{ state }}</ion-select-option>
