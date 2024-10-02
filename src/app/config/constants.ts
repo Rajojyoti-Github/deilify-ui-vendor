@@ -1,3 +1,7 @@
+export class Constants {
+    public static readonly AUTH_TOKEN = 'authToken';
+}
+
 export const PhoneCheck = (phone: string) => {
     let phoneRegex = /^\d{10}$/;
     let number: any = parseInt(phone);
@@ -9,7 +13,7 @@ export const ApiUrls = {
         sendOtp: '/api/registerVendorMobileNumber',
         verifyOtp: '/api/verifyOtpForVendor',
     },
-    register: '/api//registerVendor',
+    register: '/api/registerVendor',
 
     /* for bank */
     addBank: '/api/addBankAccount',
