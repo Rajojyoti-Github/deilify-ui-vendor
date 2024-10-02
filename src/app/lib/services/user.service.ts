@@ -25,7 +25,7 @@ export class UserService {
   }
 
   registerUserDetails(registerFormData: any) {
-    return this.commonApi.postData(`${ApiUrls.register}/`, registerFormData);
+    return this.commonApi.postData(`${ApiUrls.register}`, registerFormData);
   }
 
   addStoreAddress(addStoreAddressData: any) {
