@@ -7,8 +7,6 @@ ion-title {
 
 .input-item {
   --highlight-color-focused: var(--ion-color-primary);
-  width: 100%;
-  max-width: 300px;
   border-color: #ffffff;
   border-style: groove;
   border-radius: 3px;
@@ -17,6 +15,7 @@ ion-title {
 
 ion-input {
   --placeholder-opacity: 1;
+  margin-top: 10px;
 }
 
 .select-item {
@@ -24,7 +23,7 @@ ion-input {
 }
 
 ion-select {
-  font-size: smaller;
+  margin-top: 10px;
 }
 
 .saveBtn {

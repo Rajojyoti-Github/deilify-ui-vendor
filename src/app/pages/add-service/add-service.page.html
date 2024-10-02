@@ -10,7 +10,7 @@
 <ion-content class="ion-padding">
   <form [formGroup]="addServicesForm" (ngSubmit)="onSubmit()">
     <ion-item lines="none">
-      <ion-select label="Category Name" label-placement="fixed" fill="outline" interface="popover"
+      <ion-select label="Category Name" label-placement="floating" fill="outline" interface="popover"
         [value]="selectedCategory" formControlName="category" (ionChange)="onCategoryChange($event)">
         <ion-select-option *ngFor="let category of categories" [value]="category.value">{{ category.value
           }}</ion-select-option>
@@ -18,7 +18,7 @@
     </ion-item>
 
     <ion-item lines="none">
-      <ion-select label="Sub Category" label-placement="fixed" fill="outline" interface="popover"
+      <ion-select label="Sub Category" label-placement="floating" fill="outline" interface="popover"
         [value]="selectedSubCategory" (ionChange)="onSubCategoryChange($event)">
         <ion-select-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{ subCategory.value
           }}</ion-select-option>
@@ -26,7 +26,7 @@
     </ion-item>
 
     <ion-item lines="none">
-      <ion-select label="Service Name" label-placement="fixed" fill="outline" interface="popover"
+      <ion-select label="Service Name" label-placement="floating" fill="outline" interface="popover"
         [value]="selectedServiceLine" formControlName="serviceLine" (ionChange)="onServiceLineChange($event)">
         <ion-select-option *ngFor="let serviceLine of serviceLines" [value]="serviceLine.value">{{ serviceLine.value
           }}</ion-select-option>
@@ -34,7 +34,7 @@
     </ion-item>
 
     <ion-item lines="none">
-      <ion-input label="Service Price" label-placement="fixed" fill="outline" type="number" formControlName="price" [(ngModel)]="servicePrice"></ion-input>
+      <ion-input label="Service Price" label-placement="floating" fill="outline" type="number" formControlName="price" [(ngModel)]="servicePrice"></ion-input>
     </ion-item>
 
 

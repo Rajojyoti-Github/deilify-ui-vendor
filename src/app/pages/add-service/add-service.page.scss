@@ -9,17 +9,18 @@ ion-item {
     margin-top: 10px;
 }
 
-ion-select {
-    font-size: smaller;
-}
-
 ion-input {
     font-size: smaller;
+    margin-top: 10px;
+}
+
+ion-select {
+    margin-top: 10px;
 }
 
 .saveBtn {
     height: 45px;
-    margin-top: 100%;
+    margin-top: 90%;
     text-align: center;
     text-transform: capitalize;
     --color: var(--ion-color-light);
