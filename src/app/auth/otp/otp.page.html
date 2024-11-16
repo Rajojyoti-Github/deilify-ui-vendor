@@ -31,7 +31,7 @@
       <h5 class="timer" *ngIf="timer">00 : {{ timer > 9 ? timer:'0'+timer }}</h5>
     </div>
     
-    <div class="resendOtp">
+    <div class="resendOtp" *ngIf="resendOtp">
       Didn't Get Code? <a (click)="resendOtpBtn()">Resend OTP</a>
     </div>
   </div>
@@ -43,22 +43,3 @@
     </ion-col>
   </ion-row>
 </ion-content>
-
-
-<!-- <ion-content>
-  <div class="verify-otp-container">
-    <ion-icon name="chevron-back-outline" (click)="goToLogin()"></ion-icon>
-    <h2>Verify OTP</h2>
-    <div class="otp-input-container">
-      <ion-input type="text" maxlength="1"></ion-input>
-      <ion-input type="text" maxlength="1"></ion-input>
-      <ion-input type="text" maxlength="1"></ion-input>
-      <ion-input type="text" maxlength="1"></ion-input>
-    </div>
-    <div class="timer">2:00</div>
-    <div class="resend-otp">
-      Didn't Get Code? <a href="#">Resend OTP</a>
-    </div>
-    <ion-button expand="full">Verify OTP</ion-button>
-  </div>
-</ion-content> -->

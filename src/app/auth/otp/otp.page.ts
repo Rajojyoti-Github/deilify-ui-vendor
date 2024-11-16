@@ -45,12 +45,6 @@ export class OtpPage implements OnInit {
     this.invalidOtp = false;
   }
 
-  resendOtpBtn() {
-    //this.resendOtp = false;
-    this.timer = 60;
-    this.startTimer();
-  }
-
   startTimer(): void {
     this.interval = setInterval(() => {
       if (this.timer > 0) {
@@ -64,10 +58,6 @@ export class OtpPage implements OnInit {
   }
 
   verifyOtp() {
-    // if(this.otp == "1234") {
-    //   this.router.navigate(['/home']);
-    // } 
-
     const params = {
       mobileNumber: this.mobileNumber.toString(),
       otp: this.otp,
@@ -89,6 +79,36 @@ export class OtpPage implements OnInit {
         return throwError(() => new Error(err.error.error.message)); // rethrow the error if needed
       })
     ).subscribe();
+
+  }
+
+  // function for resend otp
+  resendOtpBtn(): void {
+    this.commonService.presentLoading();
+    const params = { mobileNumber: this.mobileNumber, otp: '', message: '' };
+      this.authService.sendOtp(params).subscribe({
+        next: (res: any) => {
+          this.commonService.dissmiss_loading();
+          if (res.message == "Success") {
+            this.resendOtp = false;
+            this.timer = 60;
+            this.startTimer()
+            this.commonService.toast('OTP Resent Successfully');
+          } else if (res && res.error) {
+            this.commonService.dissmiss_loading()
+            this.commonService.toast(res.error.message);
+          }
+        },
+        error: (err: any) => {
+          console.log(err);
+          this.commonService.dissmiss_loading();
+          this.commonService.danger('Something went wrong!!');
+        },
+        complete: () => {
+          this.commonService.dissmiss_loading();
+        }
+      });
+
 
   }
 
