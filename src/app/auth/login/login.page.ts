@@ -54,8 +54,8 @@ export class LoginPage implements OnInit {
     this.invalidPhone = !PhoneCheck(this.phoneNumber);
   }
 
-  Registration() {
-    this.router.navigate(['register']);
-  }
+  // Registration() {
+  //   this.router.navigate(['register']);
+  // }
 
 }

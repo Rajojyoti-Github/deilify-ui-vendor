@@ -2,17 +2,13 @@
     background: var(--ion-color-primary); /* Replace with the color from the image */
     color: white;
     text-align: center;
-    padding: 40px 0 20px;
+    padding: 40px 0 0;
     position: relative;
-    clip-path: ellipse(75% 100% at 50% 0%);
-  
-    .header-content {
-      .logo {
-        font-size: 36px;
-        font-weight: bold;
-        margin: 0;
-      }
-    }
+    clip-path: ellipse(80% 100% at 50% 0%);
+  }
+
+  .logo-image {
+    height: 110px;
   }
   
   .login-container {
@@ -39,9 +35,9 @@
         margin: 40px 15px 0px 15px;
     }
   
-    .register {
-      margin-top: 40px;
-    }
+    // .register {
+    //   margin-top: 40px;
+    // }
   }
 
   .placeh {
