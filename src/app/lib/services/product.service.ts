@@ -24,6 +24,15 @@ export class ProductService {
     );
   }
 
+  getServicesByVendorId(vendorId: any) {
+    return forkJoin({ isServices: this.commonApi.getAllServicesByVendorId(vendorId) }).pipe(
+      catchError((err) => this.errorHandler(err)),
+      map(({ isServices }) => ({
+        isServices,
+      }))
+    );
+  }
+
   private errorHandler(err: any) {
     if (err.error.length >= 1) {
       this.commonService.danger(err.error[0].message);

@@ -32,8 +32,6 @@ export class RegisterPage implements OnInit {
   registration() {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
-      // handle form submission
-      //Object.assign(this.registerForm, { myPreference: this.selectedPreferences });
       this.commonService.presentLoading();
       this.userService.registerUserDetails(this.registerForm.value).subscribe({
         next: (res: any) => {

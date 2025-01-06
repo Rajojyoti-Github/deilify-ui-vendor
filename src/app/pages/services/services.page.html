@@ -47,7 +47,16 @@
   </ion-row>
 
   <ion-list>
-    <ion-item class="service-item" lines="none">
+    <ion-item class="service-item" *ngFor="let item of servicesData" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="assets/images/ironing.png" alt="Dry Cleaning">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{item.serviceLine}}</h2>
+      </ion-label>
+      <ion-note slot="end" color="dark">₹ {{item.price}}</ion-note>
+    </ion-item>
+    <!-- <ion-item class="service-item" lines="none">
       <ion-thumbnail slot="start">
         <img src="assets/images/ironing.png" alt="Dry Cleaning">
       </ion-thumbnail>
@@ -82,16 +91,7 @@
         <h2>Dry Cleaning</h2>
       </ion-label>
       <ion-note slot="end" color="dark">₹550/-</ion-note>
-    </ion-item>
-    <ion-item class="service-item" lines="none">
-      <ion-thumbnail slot="start">
-        <img src="assets/images/ironing.png" alt="Dry Cleaning">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Dry Cleaning</h2>
-      </ion-label>
-      <ion-note slot="end" color="dark">₹550/-</ion-note>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
 
   <div class="add-buttons">

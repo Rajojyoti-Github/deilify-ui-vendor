@@ -37,7 +37,7 @@ export class AddNewBankPage implements OnInit {
       this.userService.addBankFormDetals(this.bankForm.value).pipe(
         tap((res: any) => {
           this.commonService.dismiss();
-          if (res?.isBank?.success) {
+          if (res?.isBank) {
             this.commonService.success("Bank Account Successfully Uploaded");
             this.router.navigate(['cash-and-bank']);
           }

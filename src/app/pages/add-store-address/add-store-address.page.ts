@@ -61,7 +61,7 @@ export class AddStoreAddressPage implements OnInit {
       this.userService.addStoreAddress([this.addStoreAddressForm.value]).pipe(
         tap((res: any) => {
           this.commonService.dismiss();
-          if (res?.isBank?.success) {
+          if (res?.isAddStore) {
             this.commonService.success('add Store Address Successfully Uploaded');
             //this.router.navigate(['cash-and-bank']);
           }
