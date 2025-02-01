@@ -15,17 +15,20 @@
       <ion-col>
         <div class="step">
           <h2>Step 1: Download Template</h2>
-          <ion-button color="primary" expand="block" (click)="downloadPredefinedExcel()">
+          <ion-button color="primary" expand="block" (click)="downloadPredefinedExcel()" [disabled]="downloadedExcel">
             <ion-icon name="download-outline" slot="start"></ion-icon>
             Download Excel Template
           </ion-button>
         </div>
       </ion-col>
     </ion-row>
+
+    <div><strong>Note:- </strong> Please select the dropdown value in excel while uploading the service details. </div>
+
     <ion-row>
       <ion-col>
         <div class="step">
-          <h2>Step 2: Upload Filled Template</h2>
+          <h2>Step 2: Upload Bulk Service</h2>
           <ion-button color="secondary" expand="block" (click)="fileInput.click()">
             <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
             Select File to Upload

@@ -12,6 +12,7 @@ import { catchError, tap, throwError } from 'rxjs';
 export class BulkUploadComponent implements OnInit {
 
   selectedFile: File | null = null;
+  downloadedExcel: boolean = false;
 
   constructor(private modalController: ModalController, public commonService: CommonService, private productService: ProductService) { }
 
@@ -31,6 +32,7 @@ export class BulkUploadComponent implements OnInit {
       tap((res: any) => {
         this.commonService.dismiss();
         if (res?.isDownloadExcel) {
+          this.downloadedExcel = true;
           this.commonService.success('Download Successfully');
         }
       }),
