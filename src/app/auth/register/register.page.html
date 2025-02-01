@@ -21,7 +21,7 @@
         <ion-label class="placeh" text-wrap>+91</ion-label>
         <ion-input class="mob" #inputinfo placeholder="Phone no."
           inputmode="tel" value="number" type="text" minlength="10" maxlength="10"
-          [(ngModel)]="phoneNumber" formControlName="phoneNumber"></ion-input>
+          [(ngModel)]="phoneNumber" formControlName="phoneNumber" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item>
         <ion-input placeholder="Email" formControlName="email"></ion-input>

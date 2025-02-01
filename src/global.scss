@@ -35,3 +35,33 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+/* Default Light Mode */
+:root {
+    --ion-background-color: #ffffff;
+    --ion-text-color: #000000;
+    // --ion-toolbar-background: #ffffff;
+    // --ion-toolbar-color: #000000;
+  }
+  
+  /* Dark Mode */
+  [data-theme='dark'] {
+    --ion-background-color: #000000;
+    --ion-text-color: #ffffff;
+    --ion-toolbar-background: #222222;
+    --ion-toolbar-color: #ffffff;
+    --ion-item-background: auto;
+
+    .summary-box-price {
+        color: #000000;
+    }
+  }
+
+  .bulk-modal-css {
+    -width: fit-content;
+    --min-width: 300px;
+    --height: 50%;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }

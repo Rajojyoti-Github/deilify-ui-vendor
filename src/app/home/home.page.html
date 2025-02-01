@@ -3,12 +3,12 @@
         <ion-grid>
             <ion-row class="ion-align-items-center">
                 <ion-col size="2">
-                    <ion-avatar>
+                    <ion-avatar (click)="openProfile()">
                         <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="Profile Image">
                     </ion-avatar>
                 </ion-col>
                 <ion-col size="8">
-                    <h4>Mark Luis</h4>
+                    <h4>Hello User</h4>
                 </ion-col>
                 <ion-col size="2" class="ion-text-right">
                     <ion-icon name="notifications-outline" size="large"></ion-icon>
@@ -42,14 +42,14 @@
                 <div class="collection-box">
                     <ion-icon name="arrow-up-circle-outline"></ion-icon>
                     <p class="label">To Collect</p>
-                    <p class="amount">₹5200.11</p>
+                    <p class="amount">₹{{toCollect}}</p>
                 </div>
             </ion-col>
             <ion-col size="6" class="ion-text-center">
                 <div class="pay-box">
                     <ion-icon name="arrow-down-circle-outline"></ion-icon>
                     <p class="label">To Pay</p>
-                    <p class="amount">₹2202.42</p>
+                    <p class="amount">₹{{toPay}}</p>
                 </div>
             </ion-col>
         </ion-row>
@@ -58,7 +58,7 @@
     <!-- Sales Summary Section -->
     <div class="sales-summary">
         <p>Total Sale</p>
-        <h1>₹31,082</h1>
+        <h1>₹{{totalSales}}</h1>
     </div>
 
     <!-- Order Summary Section -->
@@ -67,14 +67,14 @@
             <ion-col size="6">
                 <div class="summary-box">
                     <ion-icon name="cart-outline"></ion-icon>
-                    <p class="summary-box-price">960</p>
+                    <p class="summary-box-price">{{totalOrder}}</p>
                     <p>Total Order</p>
                 </div>
             </ion-col>
             <ion-col size="6">
                 <div class="summary-box">
                     <ion-icon name="cube-outline"></ion-icon>
-                    <p class="summary-box-price">30</p>
+                    <p class="summary-box-price">{{sellReport}}</p>
                     <p>Sell Report</p>
                 </div>
             </ion-col>
@@ -133,7 +133,7 @@
 
     <div class="cash-bank-summary">
         <p>Total Order Value</p>
-        <h1>₹90,000</h1>
+        <h1>₹{{totalOrderValue}}</h1>
     </div>
 
 </ion-content>

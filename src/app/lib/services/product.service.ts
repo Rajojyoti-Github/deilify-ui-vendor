@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CommonApi } from './api/common.api';
 import { map, catchError } from 'rxjs/operators';
 import { CommonService } from './common.service';
-import { forkJoin, throwError, Observable  } from 'rxjs';
+import { forkJoin, throwError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,22 @@ export class ProductService {
       map(({ isServices }) => ({
         isServices,
       }))
+    );
+  }
+
+  /* For Download Excel Bulk Upload */
+  getDownloadExcelForBulkUpload() {
+    return forkJoin({ isDownloadExcel: this.commonApi.getDownloadExcelForBulkUpload() }).pipe(
+      catchError((err) => this.errorHandler(err)),
+      map(({ isDownloadExcel }) => ({ isDownloadExcel }))
+    );
+  }
+
+  /* For Download Excel Bulk Upload */
+  uploadExcelFileForBulkServices(excelFileData: any) {
+    return forkJoin({ isUploadExcel: this.commonApi.uploadExcelFileForBulkUpload(excelFileData) }).pipe(
+      catchError((err) => this.errorHandler(err)),
+      map(({ isUploadExcel }) => ({ isUploadExcel }))
     );
   }
 

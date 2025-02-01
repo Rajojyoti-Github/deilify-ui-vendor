@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BottomTabViewComponent } from '../bottom-tab-view/bottom-tab-view.component';
 import { IonicModule } from '@ionic/angular';
+import { BulkUploadComponent } from '../bulk-upload/bulk-upload.component';
 
 const COMPONENTS = [
-  BottomTabViewComponent
+  BottomTabViewComponent,
+  BulkUploadComponent
 ]
 
 @NgModule({

@@ -68,6 +68,9 @@ export class OtpPage implements OnInit {
       tap((res: any) => {
         if (res.message == "Success") {
           localStorage.setItem("vendorId", res.vendorId);
+          let mobileNumber = res.mobileNumber;
+          let updatedNumber = mobileNumber.replace(/^91(?=\d{10}$)/, "");
+          localStorage.setItem("mobileNumber", updatedNumber);
           this.router.navigate(['/home']);
         } else if (res && res.error) {
           this.invalidOtp = true;

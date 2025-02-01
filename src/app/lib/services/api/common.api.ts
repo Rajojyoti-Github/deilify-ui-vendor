@@ -39,4 +39,12 @@ export class CommonApi extends GenericApi {
         return this.get(`${environment.baseUrl + ApiUrls.getAllServicesByVendorId}${vendorId}`);
     }
 
+    getDownloadExcelForBulkUpload() {
+        return this.get(`${environment.baseUrl + ApiUrls.DownloadExcelForBulkUpload}`);
+    }
+
+    uploadExcelFileForBulkUpload(data: any) {
+        return this.post(`${environment.baseUrl + ApiUrls.uploadExcelFileForBulkService}`, data);
+    }
+
 }

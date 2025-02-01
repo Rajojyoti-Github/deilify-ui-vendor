@@ -23,6 +23,8 @@ export class RegisterPage implements OnInit {
       phoneNumber: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
     });
+
+    this.phoneNumber = Number(localStorage.getItem("mobileNumber"));
   }
 
   Login() {
@@ -31,6 +33,7 @@ export class RegisterPage implements OnInit {
 
   registration() {
     if (this.registerForm.valid) {
+      this.registerForm.value["phoneNumber"] = "91"+ this.phoneNumber;
       console.log(this.registerForm.value);
       this.commonService.presentLoading();
       this.userService.registerUserDetails(this.registerForm.value).subscribe({
@@ -38,7 +41,7 @@ export class RegisterPage implements OnInit {
           this.commonService.dissmiss_loading();
           if (res.message == "Success") {
             this.commonService.success('Profile successfully updated');
-            this.router.navigateByUrl('/home');
+            this.router.navigate(['/home']);
           } else if (res && res.error) {
             this.commonService.danger(res.error.message);
           }

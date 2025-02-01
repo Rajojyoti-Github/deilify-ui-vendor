@@ -47,58 +47,24 @@
   </ion-row>
 
   <ion-list>
-    <ion-item class="service-item" *ngFor="let item of servicesData" lines="none">
+    <ion-item class="service-item" *ngFor="let item of servicesData" lines="none" (click)="updateService(item)">
+      <div class="category">{{item.category}}</div>
       <ion-thumbnail slot="start">
-        <img src="assets/images/ironing.png" alt="Dry Cleaning">
+        <img src="assets/images/ironing.png" alt="serviceImg">
       </ion-thumbnail>
       <ion-label>
         <h2>{{item.serviceLine}}</h2>
+        <p>{{item.subCategory}}</p>
       </ion-label>
       <ion-note slot="end" color="dark">₹ {{item.price}}</ion-note>
     </ion-item>
-    <!-- <ion-item class="service-item" lines="none">
-      <ion-thumbnail slot="start">
-        <img src="assets/images/ironing.png" alt="Dry Cleaning">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Dry Cleaning</h2>
-      </ion-label>
-      <ion-note slot="end" color="dark">₹550/-</ion-note>
-    </ion-item>
-    <ion-item class="service-item" lines="none">
-      <ion-thumbnail slot="start">
-        <img src="assets/images/ironing.png" alt="Dry Cleaning">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Dry Cleaning</h2>
-      </ion-label>
-      <ion-note slot="end" color="dark">₹550/-</ion-note>
-    </ion-item>
-    <ion-item class="service-item" lines="none">
-      <ion-thumbnail slot="start">
-        <img src="assets/images/ironing.png" alt="Dry Cleaning">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Dry Cleaning</h2>
-      </ion-label>
-      <ion-note slot="end" color="dark">₹550/-</ion-note>
-    </ion-item>
-    <ion-item class="service-item" lines="none">
-      <ion-thumbnail slot="start">
-        <img src="assets/images/ironing.png" alt="Dry Cleaning">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Dry Cleaning</h2>
-      </ion-label>
-      <ion-note slot="end" color="dark">₹550/-</ion-note>
-    </ion-item> -->
   </ion-list>
 
   <div class="add-buttons">
     <ion-fab-button size="small" (click)="addService()">
       <ion-icon name="add-circle-outline"></ion-icon>
     </ion-fab-button>
-    <ion-fab-button size="small">
+    <ion-fab-button size="small" (click)="uploadBulkServices()">
       <ion-icon name="folder-outline"></ion-icon>
     </ion-fab-button>
   </div>
