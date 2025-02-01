@@ -9,6 +9,8 @@ import { forkJoin, throwError, Observable } from 'rxjs';
 })
 export class ProductService {
 
+  uploadExcelForServiceData: any = {};
+
   constructor(private commonApi: CommonApi, private commonService: CommonService) { }
 
   getDDLResults(data: any): Observable<any> {
@@ -41,9 +43,13 @@ export class ProductService {
     );
   }
 
-  /* For Download Excel Bulk Upload */
-  uploadExcelFileForBulkServices(excelFileData: any) {
-    return forkJoin({ isUploadExcel: this.commonApi.uploadExcelFileForBulkUpload(excelFileData) }).pipe(
+  /* For Upload Excel Bulk Upload */
+  uploadExcelFileForBulkServices(file: File) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);   
+    this.uploadExcelForServiceData['file'] = formData;
+    this.uploadExcelForServiceData['vendor_id'] = Number(localStorage.getItem("vendorId"));
+    return forkJoin({ isUploadExcel: this.commonApi.uploadExcelFileForBulkUpload(this.uploadExcelForServiceData) }).pipe(
       catchError((err) => this.errorHandler(err)),
       map(({ isUploadExcel }) => ({ isUploadExcel }))
     );

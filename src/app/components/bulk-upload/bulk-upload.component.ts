@@ -9,15 +9,15 @@ import { catchError, tap, throwError } from 'rxjs';
   templateUrl: './bulk-upload.component.html',
   styleUrls: ['./bulk-upload.component.scss'],
 })
-export class BulkUploadComponent  implements OnInit {
+export class BulkUploadComponent implements OnInit {
 
-  uploadExcelForServiceData: any;
-  
-  constructor(private modalController: ModalController,public commonService: CommonService, private productService: ProductService) { }
+  selectedFile: File | null = null;
 
-  ngOnInit() {}
+  constructor(private modalController: ModalController, public commonService: CommonService, private productService: ProductService) { }
 
-   // Close the modal
+  ngOnInit() { }
+
+  // Close the modal
   closeModal() {
     this.modalController.dismiss();
   }
@@ -45,13 +45,9 @@ export class BulkUploadComponent  implements OnInit {
 
   // For send the excel data to api
   onFileChange(event: any) {
-    const selectedFile = event.target.files[0];
-    if (selectedFile) {
-      const formData: FormData = new FormData();
-      formData.append('file', selectedFile, selectedFile.name);
-      this.uploadExcelForServiceData['file'] = formData;
-      this.uploadExcelForServiceData['vendor_id'] = Number(localStorage.getItem("vendorId"));
-      this.productService.uploadExcelFileForBulkServices(this.uploadExcelForServiceData).pipe(
+    this.selectedFile = event.target.files[0];
+    if (this.selectedFile) {
+      this.productService.uploadExcelFileForBulkServices(this.selectedFile).pipe(
         tap((res: any) => {
           this.commonService.dismiss();
           if (res?.isUploadExcel) {
@@ -65,7 +61,6 @@ export class BulkUploadComponent  implements OnInit {
         })
       ).subscribe();
     }
-
   }
 
 }
