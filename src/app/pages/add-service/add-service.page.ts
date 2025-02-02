@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CommonService } from 'src/app/lib/services/common.service';
 import { ProductService } from 'src/app/lib/services/product.service';
 import { catchError, tap, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-service',
@@ -20,7 +21,9 @@ export class AddServicePage implements OnInit {
   selectedServiceLine: string | null = null;
   servicePrice: any;
 
-  constructor(private fb: FormBuilder, private productService: ProductService, private commonService: CommonService) { }
+  constructor(private fb: FormBuilder, private productService: ProductService, private commonService: CommonService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.addServicesForm = this.fb.group({
@@ -146,9 +149,9 @@ export class AddServicePage implements OnInit {
       this.productService.addServices(this.addServicesForm.value).pipe(
         tap((res: any) => {
           this.commonService.dismiss();
-          if (res?.addServices?.success) {
+          if (res?.addServices) {
             this.commonService.success('add Service Successfully Uploaded');
-            //this.router.navigate(['cash-and-bank']);
+            this.router.navigate(['services']);
           }
         }),
         catchError((error) => {

@@ -25,5 +25,10 @@ export const ApiUrls = {
     addstoreaddress: '/api/addStoreAddress',
 
     /* for add Services */
-    addServices: '/api/services'
+    addServices: '/api/services',
+    getAllServicesByVendorId: '/api/services/',
+
+    /* for bulk upload Services */
+    DownloadExcelForBulkUpload: '/api/files/bulkUpload/ServiceDownload',
+    uploadExcelFileForBulkService: '/api/files/bulkUpload/ServiceUpload'
 }

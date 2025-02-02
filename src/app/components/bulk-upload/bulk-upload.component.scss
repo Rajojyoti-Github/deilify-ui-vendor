@@ -1,0 +1,32 @@
+.bulk-upload-modal {
+    .step {
+      margin-bottom: 1.5rem;
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    ion-title {
+        font-size: x-large;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-left: 30px;
+    }
+
+    ion-icon {
+        font-size: x-large;
+    }
+  
+    ion-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      ion-icon {
+        margin-right: 0.5rem;
+      }
+    }
+
+  }
+  

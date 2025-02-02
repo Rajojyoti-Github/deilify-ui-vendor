@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: ''
+  baseUrl: 'https://d2v0tsmry3n0su.cloudfront.net'
 };
 
 /*

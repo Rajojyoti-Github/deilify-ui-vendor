@@ -8,6 +8,13 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
+  toCollect: any = 0;
+  toPay: any = 0;
+  totalSales: any = 0;
+  totalOrder: any = 0;
+  sellReport: any = 0;
+  totalOrderValue: any = 0;
+
   constructor(private router: Router) {}
 
   cashandbankbalance() {
@@ -20,6 +27,10 @@ export class HomePage {
 
   receivedPayment() {
     this.router.navigate(['received-payment']);
+  }
+
+  openProfile() {
+    this.router.navigate(['register']);
   }
 
 }

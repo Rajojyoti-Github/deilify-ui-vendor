@@ -24,6 +24,10 @@ ion-input {
 
 ion-select {
   margin-top: 10px;
+  --highlight-color-focused: var(--ion-color-primary);
+  border-color: #ffffff;
+  border-style: groove;
+  border-radius: 3px;
 }
 
 .saveBtn {
