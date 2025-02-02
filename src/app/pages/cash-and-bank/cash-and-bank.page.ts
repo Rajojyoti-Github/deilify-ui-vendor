@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class CashAndBankPage implements OnInit {
 
+  totalOrderValue: any = 0;
+  totalEarningValue: any = 0;
   constructor(private router: Router) { }
 
   ngOnInit() {

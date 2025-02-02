@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { CommonApi } from './api/common.api';
 import { map, catchError } from 'rxjs/operators';
 import { CommonService } from './common.service';
-import { forkJoin, throwError, Observable  } from 'rxjs';
+import { forkJoin, throwError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+
+  uploadExcelForServiceData: any = {};
 
   constructor(private commonApi: CommonApi, private commonService: CommonService) { }
 
@@ -21,6 +23,35 @@ export class ProductService {
       map(({ addServices }) => ({
         addServices,
       }))
+    );
+  }
+
+  getServicesByVendorId(vendorId: any) {
+    return forkJoin({ isServices: this.commonApi.getAllServicesByVendorId(vendorId) }).pipe(
+      catchError((err) => this.errorHandler(err)),
+      map(({ isServices }) => ({
+        isServices,
+      }))
+    );
+  }
+
+  /* For Download Excel Bulk Upload */
+  getDownloadExcelForBulkUpload() {
+    return forkJoin({ isDownloadExcel: this.commonApi.getDownloadExcelForBulkUpload() }).pipe(
+      catchError((err) => this.errorHandler(err)),
+      map(({ isDownloadExcel }) => ({ isDownloadExcel }))
+    );
+  }
+
+  /* For Upload Excel Bulk Upload */
+  uploadExcelFileForBulkServices(file: File) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);   
+    this.uploadExcelForServiceData['file'] = formData;
+    this.uploadExcelForServiceData['vendor_id'] = Number(localStorage.getItem("vendorId"));
+    return forkJoin({ isUploadExcel: this.commonApi.uploadExcelFileForBulkUpload(this.uploadExcelForServiceData) }).pipe(
+      catchError((err) => this.errorHandler(err)),
+      map(({ isUploadExcel }) => ({ isUploadExcel }))
     );
   }
 

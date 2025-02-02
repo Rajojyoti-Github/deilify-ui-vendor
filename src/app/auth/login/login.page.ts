@@ -24,6 +24,7 @@ export class LoginPage implements OnInit {
     if (!inputinfo.value) return;
     const params = { mobileNumber: "91" + inputinfo.value, otp: '', message: '' };
     if (!this.invalidPhone) {
+      console.log(params);
       this.commonService.presentLoading();
       this.authService.sendOtp(params).subscribe({
         next: (res: any) => {
@@ -37,6 +38,7 @@ export class LoginPage implements OnInit {
           }
         },
         error: (err: any) => {
+          console.log(err);
           this.commonService.dissmiss_loading();
           this.commonService.danger('Something went wrong!!');
         },
@@ -52,8 +54,8 @@ export class LoginPage implements OnInit {
     this.invalidPhone = !PhoneCheck(this.phoneNumber);
   }
 
-  Registration() {
-    this.router.navigate(['register']);
-  }
+  // Registration() {
+  //   this.router.navigate(['register']);
+  // }
 
 }

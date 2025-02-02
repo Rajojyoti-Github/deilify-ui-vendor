@@ -1,14 +1,14 @@
 <ion-header class="ion-no-border">
   <div class="custom-header">
     <div class="header-content">
-      <h1 class="logo">Deilify</h1>
+      <img src="assets/images/Deilify.jpg" alt="Deilify Logo" class="logo-image" />
     </div>
   </div>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="register-container">
-    <h1>Register</h1>
+    <h1>Profile</h1>
     <ion-avatar class="profile-picture">
       <img alt="Profile Picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
@@ -21,15 +21,19 @@
         <ion-label class="placeh" text-wrap>+91</ion-label>
         <ion-input class="mob" #inputinfo placeholder="Phone no."
           inputmode="tel" value="number" type="text" minlength="10" maxlength="10"
-          [(ngModel)]="phoneNumber" formControlName="phoneNumber"></ion-input>
+          [(ngModel)]="phoneNumber" formControlName="phoneNumber" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item>
         <ion-input placeholder="Email" formControlName="email"></ion-input>
       </ion-item>
-      <div class="login-link">
+      <!-- <div class="login-link">
         <span>Already have an account? <a (click)="Login()">Login</a></span>
-      </div>
-      <ion-button class="registerBtn" expand="block" strong="true" mode="md" fill="solid" type="submit" [disabled]="!registerForm.valid">Registration</ion-button>
+      </div> -->
+      <ion-button class="registerBtn" expand="block" strong="true" mode="md" fill="solid" type="submit" [disabled]="!registerForm.valid">Update</ion-button>
     </form>
   </div>
 </ion-content>
+
+<ion-footer class="ion-no-border footer">
+  <app-bottom-tab-view [tabsTextAvailable]="false"></app-bottom-tab-view>
+</ion-footer>

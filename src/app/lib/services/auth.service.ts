@@ -4,13 +4,14 @@ import { throwError } from 'rxjs';
 import { ApiUrls } from '../../config/constants';
 import { CommonService } from './common.service';
 import { CommonApi } from './api/common.api';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private commonApi: CommonApi,private commonService: CommonService) { }
+  constructor(private commonApi: CommonApi,private commonService: CommonService, private router: Router) { }
 
   sendOtp(phone: any) {
     return this.commonApi
@@ -30,6 +31,11 @@ export class AuthService {
     } else {
       this.commonService.toast(err.status == 200?err.error.error ? err.error.error.message : err.error.message:err.statusText);
     }
-    return throwError(() => new Error(err.error.error.message));
+    return throwError(() => new Error(err.message));
+  }
+
+  logOutUser() {
+    localStorage.clear()
+    this.router.navigate(['/login'])
   }
 }
