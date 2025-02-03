@@ -65,7 +65,7 @@ export class BulkUploadComponent implements OnInit {
         catchError((error) => {
           this.commonService.dismiss();
           this.commonService.danger(error);
-          return throwError(() => new Error(error.error.error.message)); // rethrow the error if needed
+          return throwError(() => new Error(error.message)); // rethrow the error if needed
         })
       ).subscribe();
     }
