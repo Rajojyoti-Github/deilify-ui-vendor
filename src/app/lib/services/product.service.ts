@@ -35,13 +35,6 @@ export class ProductService {
     );
   }
 
-  /* For Download Excel Bulk Upload */
-  // getDownloadExcelForBulkUpload() {
-  //   return forkJoin({ isDownloadExcel: this.commonApi.getDownloadExcelForBulkUpload() }).pipe(
-  //     catchError((err) => this.errorHandler(err)),
-  //     map(({ isDownloadExcel }) => ({ isDownloadExcel }))
-  //   );
-  // }
   getDownloadExcelForBulkUpload() {
     return this.commonApi.getDownloadExcelForBulkUpload();
   }
@@ -50,9 +43,10 @@ export class ProductService {
   uploadExcelFileForBulkServices(file: File) {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);   
-    this.uploadExcelForServiceData['file'] = formData;
-    this.uploadExcelForServiceData['vendor_id'] = Number(localStorage.getItem("vendorId"));
-    return forkJoin({ isUploadExcel: this.commonApi.uploadExcelFileForBulkUpload(this.uploadExcelForServiceData) }).pipe(
+    // this.uploadExcelForServiceData['file'] = formData;
+    // this.uploadExcelForServiceData['vendor_id'] = Number(localStorage.getItem("vendorId"));
+    formData.append('vendor_id', localStorage.getItem("vendorId") || '');
+    return forkJoin({ isUploadExcel: this.commonApi.uploadExcelFileForBulkUpload(formData) }).pipe(
       catchError((err) => this.errorHandler(err)),
       map(({ isUploadExcel }) => ({ isUploadExcel }))
     );

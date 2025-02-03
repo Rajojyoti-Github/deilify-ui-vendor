@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CommonApi extends GenericApi {
 
-    constructor(http: HttpClient,) {
+    constructor(http: HttpClient) {
         super(http);
     }
 

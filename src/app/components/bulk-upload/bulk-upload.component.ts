@@ -24,26 +24,7 @@ export class BulkUploadComponent implements OnInit {
   }
 
 
-
   // Download the excel file for bulk upload data
-  // downloadPredefinedExcel() {
-  //   this.commonService.present();
-  //   this.productService.getDownloadExcelForBulkUpload().pipe(
-  //     tap((res: any) => {
-  //       this.commonService.dismiss();
-  //       if (res?.isDownloadExcel) {
-  //         this.downloadedExcel = true;
-  //         this.commonService.success('Download Successfully');
-  //       }
-  //     }),
-  //     catchError((error) => {
-  //       this.commonService.dismiss();
-  //       this.commonService.danger(error);
-  //       return throwError(() => new Error(error.error.error.message)); // rethrow the error if needed
-  //     })
-  //   ).subscribe();
-  // }
-
   downloadPredefinedExcel() {
     this.commonService.present();
     this.productService.getDownloadExcelForBulkUpload().pipe(
@@ -69,9 +50,6 @@ export class BulkUploadComponent implements OnInit {
     link.click();
     window.URL.revokeObjectURL(url);
   }
-  
-  
-
 
   // For send the excel data to api
   onFileChange(event: any) {

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export class GenericApi {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   /**
    * @method get
    * @description Hit http request and get object Observable.
@@ -14,22 +14,14 @@ export class GenericApi {
 
   /**
    * @method get
-   * @description Hit http request and get object Observable.
-   * @returns An `Observable` of the Object.
+   * @description Hit http request and get Blob Observable.
+   * @returns An `Observable` of the Blob.
    */
-  // protected getBlob(url: string, options: any = {}): Observable<any> {
-  //   return this.http.get<Blob>(url, { ...options });
-  // }
-
-  // protected getBlob(url: string, options: any = {}): Observable<Blob> {
-  //   return this.http.get<Blob>(url,{ ...options });
-  // }
-
-  protected getBlob(url: string):Observable<Blob> {
+  protected getBlob(url: string): Observable<Blob> {
     return this.http.get(url, {
-    responseType: "blob"
-  });
-}
+      responseType: "blob"
+    });
+  }
 
   /**
    * @method post
