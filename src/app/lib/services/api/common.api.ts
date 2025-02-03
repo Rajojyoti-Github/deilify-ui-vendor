@@ -3,11 +3,12 @@ import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { GenericApi } from './shared/generic.api';
 import { ApiUrls } from 'src/app/config/constants';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class CommonApi extends GenericApi {
 
-    constructor(http: HttpClient) {
+    constructor(http: HttpClient,) {
         super(http);
     }
 
@@ -40,7 +41,7 @@ export class CommonApi extends GenericApi {
     }
 
     getDownloadExcelForBulkUpload() {
-        return this.get(`${environment.baseUrl + ApiUrls.DownloadExcelForBulkUpload}`);
+        return this.getBlob(`${environment.baseUrl + ApiUrls.DownloadExcelForBulkUpload}`);
     }
 
     uploadExcelFileForBulkUpload(data: any) {

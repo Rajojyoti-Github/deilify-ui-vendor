@@ -11,6 +11,26 @@ export class GenericApi {
   protected get(url: string, options?: any): Observable<object> {
     return this.http.get(url, options);
   }
+
+  /**
+   * @method get
+   * @description Hit http request and get object Observable.
+   * @returns An `Observable` of the Object.
+   */
+  // protected getBlob(url: string, options: any = {}): Observable<any> {
+  //   return this.http.get<Blob>(url, { ...options });
+  // }
+
+  // protected getBlob(url: string, options: any = {}): Observable<Blob> {
+  //   return this.http.get<Blob>(url,{ ...options });
+  // }
+
+  protected getBlob(url: string):Observable<Blob> {
+    return this.http.get(url, {
+    responseType: "blob"
+  });
+}
+
   /**
    * @method post
    * @description Hit http request and get object Observable.

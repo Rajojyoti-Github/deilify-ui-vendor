@@ -36,11 +36,14 @@ export class ProductService {
   }
 
   /* For Download Excel Bulk Upload */
+  // getDownloadExcelForBulkUpload() {
+  //   return forkJoin({ isDownloadExcel: this.commonApi.getDownloadExcelForBulkUpload() }).pipe(
+  //     catchError((err) => this.errorHandler(err)),
+  //     map(({ isDownloadExcel }) => ({ isDownloadExcel }))
+  //   );
+  // }
   getDownloadExcelForBulkUpload() {
-    return forkJoin({ isDownloadExcel: this.commonApi.getDownloadExcelForBulkUpload() }).pipe(
-      catchError((err) => this.errorHandler(err)),
-      map(({ isDownloadExcel }) => ({ isDownloadExcel }))
-    );
+    return this.commonApi.getDownloadExcelForBulkUpload();
   }
 
   /* For Upload Excel Bulk Upload */
