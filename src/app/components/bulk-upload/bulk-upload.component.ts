@@ -20,7 +20,7 @@ export class BulkUploadComponent implements OnInit {
 
   // Close the modal
   closeModal() {
-    this.modalController.dismiss();
+    this.modalController.dismiss('success');
   }
 
 
@@ -59,7 +59,8 @@ export class BulkUploadComponent implements OnInit {
         tap((res: any) => {
           this.commonService.dismiss();
           if (res?.isUploadExcel) {
-            this.commonService.success('Excel Uploaded Successfully');
+            this.closeModal();
+            this.commonService.success(res?.isUploadExcel.message);
           }
         }),
         catchError((error) => {
