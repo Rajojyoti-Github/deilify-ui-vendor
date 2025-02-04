@@ -20,30 +20,36 @@ export class BulkUploadComponent implements OnInit {
 
   // Close the modal
   closeModal() {
-    this.modalController.dismiss();
+    this.modalController.dismiss('success');
   }
-
 
 
   // Download the excel file for bulk upload data
   downloadPredefinedExcel() {
     this.commonService.present();
     this.productService.getDownloadExcelForBulkUpload().pipe(
-      tap((res: any) => {
+      tap((blob: Blob) => {
         this.commonService.dismiss();
-        if (res?.isDownloadExcel) {
-          this.downloadedExcel = true;
-          this.commonService.success('Download Successfully');
-        }
+        this.downloadedExcel = true;
+        this.downloadFile(blob, 'BulkUploadTemplate.xlsx'); // Change the filename if needed
+        this.commonService.success('Download Successfully');
       }),
       catchError((error) => {
         this.commonService.dismiss();
-        this.commonService.danger(error);
-        return throwError(() => new Error(error.error.error.message)); // rethrow the error if needed
+        this.commonService.danger('Download failed.');
+        return throwError(() => new Error(error.message));
       })
     ).subscribe();
   }
-
+  
+  downloadFile(blob: Blob, filename: string) {
+    const link = document.createElement('a');
+    const url = window.URL.createObjectURL(blob);
+    link.href = url;
+    link.download = filename;
+    link.click();
+    window.URL.revokeObjectURL(url);
+  }
 
   // For send the excel data to api
   onFileChange(event: any) {
@@ -53,13 +59,14 @@ export class BulkUploadComponent implements OnInit {
         tap((res: any) => {
           this.commonService.dismiss();
           if (res?.isUploadExcel) {
-            this.commonService.success('Excel Uploaded Successfully');
+            this.closeModal();
+            this.commonService.success(res?.isUploadExcel.message);
           }
         }),
         catchError((error) => {
           this.commonService.dismiss();
           this.commonService.danger(error);
-          return throwError(() => new Error(error.error.error.message)); // rethrow the error if needed
+          return throwError(() => new Error(error.message)); // rethrow the error if needed
         })
       ).subscribe();
     }

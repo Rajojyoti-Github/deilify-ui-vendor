@@ -25,7 +25,7 @@ export class ServicesPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    console.log('testing')
+    //console.log('testing')
     this.getServicesByVendorId();
   }
 
@@ -66,7 +66,12 @@ export class ServicesPage implements OnInit {
       cssClass: 'bulk-modal-css',
       backdropDismiss: false,
     });
-    return await modal.present();
+     await modal.present();
+    modal.onDidDismiss().then((data: any) => {
+      if(data.data !== 0 && data.data !== null && data.data !== undefined) {
+        this.getServicesByVendorId();
+      }
+    });
   }
 
 }
