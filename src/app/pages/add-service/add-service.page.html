@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="addServicesForm" (ngSubmit)="onSubmit()">
+    <ion-item lines="none">
+      <ion-select label="Category Name" label-placement="floating" fill="outline" interface="popover"
+        [value]="selectedCategory" formControlName="category" (ionChange)="onCategoryChange($event)">
+        <ion-select-option *ngFor="let category of categories" [value]="category.value">{{ category.value
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-select label="Sub Category" label-placement="floating" fill="outline" interface="popover"
+        [value]="selectedSubCategory" (ionChange)="onSubCategoryChange($event)">
+        <ion-select-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{ subCategory.value
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-select label="Service Name" label-placement="floating" fill="outline" interface="popover"
+        [value]="selectedServiceLine" formControlName="serviceLine" (ionChange)="onServiceLineChange($event)">
+        <ion-select-option *ngFor="let serviceLine of serviceLines" [value]="serviceLine.value">{{ serviceLine.value
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input label="Service Price" label-placement="floating" fill="outline" type="number" formControlName="price" [(ngModel)]="servicePrice"></ion-input>
+    </ion-item>
+
+
+    <ion-button class="saveBtn" type="submit" expand="block" strong="true" mode="md" fill="solid">Save</ion-button>
+  </form>
+
+</ion-content>

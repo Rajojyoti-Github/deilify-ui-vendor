@@ -1,20 +1,143 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-grid>
+            <ion-row class="ion-align-items-center">
+                <ion-col size="2">
+                    <ion-avatar (click)="openProfile()">
+                        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="Profile Image">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col size="8">
+                    <h4>Hello User</h4>
+                </ion-col>
+                <ion-col size="2" class="ion-text-right">
+                    <ion-icon name="notifications-outline" size="large"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <!-- Carousel Section -->
+    <div id="container">
+        <swiper-container #swiper pagination="true">
+            <swiper-slide>
+                <img class="swiperImage" src="assets/images/clothing.png" />
+            </swiper-slide>
+            <swiper-slide>
+                <img class="swiperImage" src="assets/images/washing.png" />
+            </swiper-slide>
+            <swiper-slide>
+                <img class="swiperImage" src="assets/images/cleaning.png" />
+            </swiper-slide>
+        </swiper-container>
+    </div>
+
+    <!-- To Collect and To Pay Section -->
+    <ion-grid>
+        <ion-row class="ion-align-items-center ion-padding-bottom">
+            <ion-col size="6" class="ion-text-center collect-border">
+                <div class="collection-box">
+                    <ion-icon name="arrow-up-circle-outline"></ion-icon>
+                    <p class="label">To Collect</p>
+                    <p class="amount">₹{{toCollect}}</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center">
+                <div class="pay-box">
+                    <ion-icon name="arrow-down-circle-outline"></ion-icon>
+                    <p class="label">To Pay</p>
+                    <p class="amount">₹{{toPay}}</p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- Sales Summary Section -->
+    <div class="sales-summary">
+        <p>Total Sale</p>
+        <h1>₹{{totalSales}}</h1>
+    </div>
+
+    <!-- Order Summary Section -->
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6">
+                <div class="summary-box">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <p class="summary-box-price">{{totalOrder}}</p>
+                    <p>Total Order</p>
+                </div>
+            </ion-col>
+            <ion-col size="6">
+                <div class="summary-box">
+                    <ion-icon name="cube-outline"></ion-icon>
+                    <p class="summary-box-price">{{sellReport}}</p>
+                    <p>Sell Report</p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- Buttons Section -->
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6">
+                <ion-button expand="block" class="payment-bill" (click)="receivedPayment()">Received Payment</ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button expand="block" class="payment-bill" (click)="billInvoice()">+ Bill/Invoice</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- Transactions Section -->
+    <ion-grid>
+        <ion-row class="ion-align-items-center">
+            <ion-col>
+                <h4 class="transaction-header">Transactions</h4>
+            </ion-col>
+            <ion-col class="ion-text-right">
+                <a>view all</a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- Transaction Item -->
+    <div class="transaction-box">
+        <div class="transaction-top">
+            <a class="transaction-id">#125523366</a>
+            <span class="transaction-amount">₹550/-</span>
+        </div>
+        <p class="transaction-detail">Received Payment #15226365</p>
+        <p class="transaction-date">30 Oct 2022, 10:30 PM</p>
+        <ion-button size="small" fill="clear" color="dark" class="transaction-button">
+            <ion-icon name="arrow-redo-sharp"></ion-icon>
+            Send Receipt
+        </ion-button>
+    </div>
+
+    <!-- Total Cash & Bank Balance Section -->
+    <ion-grid>
+        <ion-row class="ion-align-items-center">
+            <ion-col size="8">
+                <h4 class="cash-bank-header">Cash & Bank Balance</h4>
+            </ion-col>
+            <ion-col class="ion-text-right" size="4" (click)="cashandbankbalance()">
+                <a>view all</a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="cash-bank-summary">
+        <p>Total Order Value</p>
+        <h1>₹{{totalOrderValue}}</h1>
+    </div>
+
 </ion-content>
+
+<ion-footer class="ion-no-border footer">
+    <app-bottom-tab-view [tabsTextAvailable]="false"></app-bottom-tab-view>
+</ion-footer>

@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Add Store Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="addStoreAddressForm" (ngSubmit)="onSubmit()">
+    <ion-item lines="none" class="input-item">
+      <ion-input formControlName="addressLine1" type="text" placeholder="Address Line 1"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-input formControlName="addressLine2" type="text" placeholder="Address Line 2"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-input formControlName="city" type="text" placeholder="City"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-input formControlName="district" type="text" placeholder="District"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="select-item">
+      <ion-select label="Country" label-placement="floating" fill="outline" interface="popover" 
+        formControlName="country">
+        <ion-select-option *ngFor="let country of countries" [value]="country">
+          {{ country }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item lines="none" class="select-item">
+      <ion-select label="State" label-placement="floating" fill="outline" interface="popover"
+        formControlName="state" [disabled]="!stateList.length">
+        <ion-select-option *ngFor="let state of stateList" [value]="state">
+          {{ state }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-input formControlName="pin" type="text" placeholder="Pin Code"
+        inputmode="number" minlength="6" maxlength="6" ></ion-input>
+    </ion-item>
+
+    <ion-button class="saveBtn" type="submit" expand="block" strong="true" mode="md" fill="solid"
+      [disabled]="!addStoreAddressForm.valid">Save</ion-button>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-no-border footer">
+  <app-bottom-tab-view [tabsTextAvailable]="false"></app-bottom-tab-view>
+</ion-footer>

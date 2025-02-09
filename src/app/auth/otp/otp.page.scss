@@ -1,0 +1,111 @@
+.custom-header {
+  background: var(--ion-color-primary); /* Replace with the color from the image */
+  color: white;
+  text-align: center;
+  padding: 40px 0 0;
+  position: relative;
+  clip-path: ellipse(80% 100% at 50% 0%);
+}
+
+.logo-image {
+  height: 110px;
+}
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    //height: calc(100% - 450px); /* Adjust height based on header size */
+    text-align: center;
+    margin-bottom: 75%;
+  
+    h1 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: larger;
+    }
+  
+    .resendOtp {
+      margin-top: 40px;
+    }
+  }
+
+  .welcome-text {
+    margin-bottom: 35px;
+  }
+  
+  .welcome-text h5 {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 50px;
+  }
+
+  .timer {
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  ion-button {
+    height: 45px;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0px 15px 0px 15px;
+    --color: var(--ion-color-light);
+    &[disabled] {
+      --background: #b8acac;
+    }
+  }
+
+// .verify-otp-container {
+//     text-align: center;
+//     padding: 20px;
+//   }
+  
+//   ion-back-button {
+//     margin-top: 10px;
+//   }
+  
+//   h2 {
+//     font-size: 24px;
+//     margin: 20px 0;
+//   }
+  
+//   .otp-input-container {
+//     display: flex;
+//     justify-content: center;
+//     gap: 10px;
+//     margin: 20px 0;
+//   }
+  
+//   ion-input {
+//     width: 50px;
+//     height: 50px;
+//     text-align: center;
+//     font-size: 24px;
+//     border: 1px solid #ccc;
+//     border-radius: 5px;
+//   }
+  
+//   .timer {
+//     margin: 20px 0;
+//     font-size: 18px;
+//   }
+  
+//   .resend-otp {
+//     margin: 20px 0;
+//   }
+  
+//   .resend-otp a {
+//     color: #00BFA5;
+//     text-decoration: none;
+//     font-weight: bold;
+//   }
+  
+//   ion-button {
+//     --background: #00BFA5;
+//     --color: #fff;
+//     margin-top: 20px;
+//   }
+  

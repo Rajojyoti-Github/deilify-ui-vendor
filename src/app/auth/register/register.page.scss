@@ -1,0 +1,80 @@
+.custom-header {
+  background: var(--ion-color-primary); /* Replace with the color from the image */
+  color: white;
+  text-align: center;
+  padding: 40px 0 0;
+  position: relative;
+  clip-path: ellipse(80% 100% at 50% 0%);
+}
+
+.logo-image {
+  height: 110px;
+}
+
+.register-container {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.profile-picture {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+ion-item {
+  width: 100%;
+  max-width: 300px;
+  border-color: #ffffff;
+  border-style: groove;
+  border-radius: 3px;
+  margin: 10px 15px 0px 15px;
+}
+
+.placeh {
+  flex: 0.2 !important;
+  font-size: small;
+  font-weight: bold;
+  margin: 5px;
+}
+.mob {
+  margin: 0 !important;
+  flex: 5 !important;
+}
+
+.login-link {
+  margin-top: 90px;
+  margin-bottom: 20px;
+}
+
+.login-link a {
+  color: var(--ion-color-primary);
+  text-decoration: none;
+}
+
+.registerBtn {
+  height: 45px;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 75px 15px 0px 15px;
+  --color: var(--ion-color-light);
+}

@@ -1,0 +1,43 @@
+<ion-content class="ion-padding bulk-upload-modal">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title class="ion-text-center">Bulk Upload</ion-title>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="closeModal()">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="step">
+          <h2>Step 1: Download Template</h2>
+          <ion-button color="primary" expand="block" (click)="downloadPredefinedExcel()" [disabled]="downloadedExcel">
+            <ion-icon name="download-outline" slot="start"></ion-icon>
+            Download Excel Template
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <div><strong>Note:- </strong> Please select the dropdown value in excel while uploading the service details. </div>
+
+    <ion-row>
+      <ion-col>
+        <div class="step">
+          <h2>Step 2: Upload Bulk Service</h2>
+          <ion-button color="secondary" expand="block" (click)="fileInput.click()">
+            <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+            Select File to Upload
+          </ion-button>
+          <input type="file" accept=".xlsx, .xls" #fileInput (change)="onFileChange($event)" hidden />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+

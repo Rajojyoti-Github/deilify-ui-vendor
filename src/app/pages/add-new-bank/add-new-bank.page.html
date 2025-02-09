@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Bank</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="bankForm" (ngSubmit)="onSubmit()">
+    <ion-item lines="none">
+      <ion-input formControlName="accountHolderName" type="text" placeholder="Account Holder Name"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input formControlName="bankName" type="text" placeholder="Bank Name"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input formControlName="beneficiaryName" type="text" placeholder="Beneficiary Name"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input formControlName="bankAccountNumber" type="text" placeholder="Bank Account Number"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input formControlName="ifscCode" type="text" placeholder="IFSC Code"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input formControlName="upiId" type="text" placeholder="UPI ID"></ion-input>
+    </ion-item>
+
+    <ion-button class="saveBtn" type="submit" expand="block" strong="true" mode="md" fill="solid"
+      [disabled]="!bankForm.valid">Save</ion-button>
+  </form>
+</ion-content>
