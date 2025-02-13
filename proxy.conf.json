@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "https://d2v0tsmry3n0su.cloudfront.net/",
+      "target": "https://d3dqsbtcgxhjou.cloudfront.net/",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
